@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
@@ -9,13 +9,17 @@ import { useRouter } from "next/navigation";
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter()
+  const router = useRouter();
   const handleSignin = async () => {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
       console.log("User signed up:", user);
-      router.push('/dashboard');
+      router.push("/dashboard");
     } catch (error) {
       console.error("Error signing up:", error.message);
     }
@@ -41,11 +45,17 @@ function Signin() {
             className="p-2 border rounded-md"
           />
         </div>
-        <button className="bg-blue-500 p-2 rounded-md my-3 text-white" onClick={handleSignin}>
+        <button
+          className="bg-blue-500 p-2 rounded-md my-3 text-white"
+          onClick={handleSignin}
+        >
           Sign in
         </button>
-        <button className="p-2 my-3 text-blue-500 underline" onClick={() => router.push('/signup')}>
-          Don't have an account yet? Sign up
+        <button
+          className="p-2 my-3 text-blue-500 underline"
+          onClick={() => router.push("/signup")}
+        >
+          Don&apos;t have an account yet? Sign up
         </button>
       </div>
     </div>
